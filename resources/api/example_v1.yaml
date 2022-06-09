@@ -36,8 +36,6 @@ paths:
           description: Successful operation
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/SchedulesRequest'
         '400':
           $ref: '#/components/responses/400'
         '403':
@@ -56,8 +54,6 @@ paths:
         description: Created
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/ScheduleRequest'
       responses:
         '201':
           description: Created
