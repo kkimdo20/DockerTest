@@ -16,12 +16,8 @@ externalDocs:
   description: External Documentation
   url: 'https://example.com/documentation'
 servers:
-  - url: 'http://localhost:8080/api'
+  - url: 'http://s12.aptstory.com/api'
     description: Test
-  - url: 'https://staging.example.com/api/v1'
-    description: Staging
-  - url: 'https://example.com/api/v1'
-    description: Production
 tags:
   - name: User
 # security:
@@ -41,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Schedules'
+                $ref: '#/components/schemas/SchedulesRequest'
         '400':
           $ref: '#/components/responses/400'
         '403':
@@ -82,89 +78,7 @@ paths:
           $ref: '#/components/responses/422'
         '500':
           $ref: '#/components/responses/500'
-  '/users/{user_id}':
-    get:
-      tags:
-        - User
-      summary: Get user
-      description: 'My description.'
-      operationId: getUserById
-      parameters:
-        - name: user_id
-          in: path
-          description: 'The ID that needs to be fetched. Use 1 for testing.'
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          $ref: '#/components/responses/400'
-        '403':
-          $ref: '#/components/responses/403'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/500'
-    put:
-      tags:
-        - User
-      summary: Update user
-      description: 'My description.'
-      operationId: updateUser
-      parameters:
-        - name: user_id
-          in: path
-          description: ID that need to be deleted
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Update an existent user
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/200'
-        '400':
-          $ref: '#/components/responses/400'
-        '403':
-          $ref: '#/components/responses/403'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/500'
-    delete:
-      tags:
-        - User
-      summary: Delete user
-      description: 'My description.'
-      operationId: deleteUser
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID that needs to be deleted
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/200'
-        '400':
-          $ref: '#/components/responses/400'
-        '403':
-          $ref: '#/components/responses/403'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/500'
+
 components:
   securitySchemes:
     BasicAuth:
