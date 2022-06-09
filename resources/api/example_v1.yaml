@@ -16,7 +16,7 @@ externalDocs:
   description: External Documentation
   url: 'https://example.com/documentation'
 servers:
-  - url: 'http://localhost:8000/api'
+  - url: 'http://localhost:8080/api'
     description: Test
   - url: 'https://staging.example.com/api/v1'
     description: Staging
@@ -27,20 +27,21 @@ tags:
 # security:
 #   - BasicAuth: []
 paths:
-  '/users':
+
+  '/schedules':
     get:
       tags:
-        - User
-      summary: List users
-      description: 'My description.'
-      operationId: getUsers
+        - Schedule
+      summary: List schedules
+      description: 'get schedule list'
+      operationId: getSchedules
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Users'
+                $ref: '#/components/schemas/Schedules'
         '400':
           $ref: '#/components/responses/400'
         '403':
@@ -51,16 +52,16 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - User
-      summary: Create user
-      description: 'My description.'
-      operationId: createUser
+        - Schedule
+      summary: Create Schedule
+      description: 'post Schedule.'
+      operationId: createSchedule
       requestBody:
         description: Created
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserRequest'
+              $ref: '#/components/schemas/ScheduleRequest'
       responses:
         '201':
           description: Created
@@ -323,6 +324,42 @@ components:
           description: List of users
           items:
             $ref: '#/components/schemas/User'
+
+    ScheduleRequest:
+      type: object
+      properties:
+        schedule_id:
+          type: int
+          example:
+        pageType:
+          type: string
+          example:
+        pageName:
+          type: string
+          example:
+        title:
+          type: string
+          example: 'title!!!'
+        message:
+          type: string
+          example: 'muyaho'
+        tr_status:
+          type: integer
+          format: int32
+          example: 1
+        time_from:
+          type: string
+          example:
+        time_to:
+          type: string
+          description:
+        creator:
+          type: string
+          description: 'woogie'
+        created:
+          type: string
+          description:
+
     UserRequest:
       type: object
       properties:
@@ -351,6 +388,7 @@ components:
         enabled:
           type: boolean
           description: User Status
+
     Error:
       required:
         - error

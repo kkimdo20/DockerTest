@@ -41,7 +41,7 @@ $settings['logger'] = [
 // Database settings
 $settings['db'] = [
     'driver' => \Cake\Database\Driver\Mysql::class,
-    'host' => 'localhost',
+    'host' => '114.108.128.87',
     'encoding' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     // Enable identifier quoting
@@ -79,9 +79,9 @@ $settings['phoenix'] = [
             'adapter' => 'mysql',
             'host' => '127.0.0.1',
             'port' => 3306,
-            'username' => 'root',
-            'password' => '',
-            'db_name' => 'slim_skeleton_dev',
+            'username' => 'woogie',
+            'password' => 'gusdnr12',
+            'db_name' => 'aptmanagement',
             'charset' => 'utf8',
         ],
         'local2' => [
